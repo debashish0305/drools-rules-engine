@@ -1,0 +1,135 @@
+package com.db.drools.rules.engine.rules
+
+import com.db.drools.rules.engine.model.Data
+import com.db.drools.rules.engine.utils.EState
+import com.db.drools.rules.engine.utils.EVehicle
+import com.db.drools.rules.engine.helper.RulesHelper
+
+global com.db.drools.rules.engine.model.Data rulesData
+dialect "java"
+
+rule "Apply Discount of 27 % for Delhi if vehicle is four-wheeler"
+        when
+            $data: Data(state.name().equalsIgnoreCase(EState.DEL.name()) && evehicle.name().equals(EVehicle.FOUR_WHEELER.name()) )
+        then
+        	    double discountRate= 0.27 ;
+
+        	    double discountAmount = $data.getAmount() * discountRate;
+                double discountedTotal = $data.getAmount() - discountAmount;
+                $data.setAmount(discountedTotal);
+                $data.setDiscountAmount(discountAmount);
+                $data.setDiscountRate(discountRate * 100 + "%");
+        	$data.setMessage("Final price of the vehicle in " + $data.getCity() + " is " + $data.getAmount() + ", with discount rate of " + $data.getDiscountRate());
+        end
+
+rule "Apply Discount of 33 % for Delhi if vehicle is two-wheeler"
+        when
+            $data: Data(state.name().equalsIgnoreCase(EState.DEL.name()) && evehicle.name().equals(EVehicle.TWO_WHEELER.name()) )
+        then
+        	    double discountRate= 0.33 ;
+
+                double discountAmount = $data.getAmount() * discountRate;
+                double discountedTotal = $data.getAmount() - discountAmount;
+                $data.setAmount(discountedTotal);
+                $data.setDiscountAmount(discountAmount);
+                $data.setDiscountRate(discountRate * 100 + "%");
+        	$data.setMessage("Final price of the vehicle in " + $data.getCity() + " is " + $data.getAmount() + ", with discount rate of " + $data.getDiscountRate());
+        end
+
+rule "Apply Discount of 23 % for Delhi if vehicle is three-wheeler"
+        when
+            $data: Data(state.name().equalsIgnoreCase(EState.DEL.name()) && evehicle.name().equals(EVehicle.THREE_WHEELER.name()) )
+        then
+        	    double discountRate= 0.23 ;
+
+                double discountAmount = $data.getAmount() * discountRate;
+                double discountedTotal = $data.getAmount() - discountAmount;
+                $data.setAmount(discountedTotal);
+                $data.setDiscountAmount(discountAmount);
+                $data.setDiscountRate(discountRate * 100 + "%");
+        	$data.setMessage("Final price of the vehicle in " + $data.getCity() + " is " + $data.getAmount() + ", with discount rate of " + $data.getDiscountRate());
+        end
+
+rule "Apply Discount of 25 % for Maharashtra if vehicle is four-wheeler"
+        when
+            $data: Data(state.name().equalsIgnoreCase(EState.MAHA.name()) && evehicle.name().equals(EVehicle.FOUR_WHEELER.name()) )
+        then
+        	    double discountRate= 0.25 ;
+
+        	    double discountAmount = $data.getAmount() * discountRate;
+                double discountedTotal = $data.getAmount() - discountAmount;
+                $data.setAmount(discountedTotal);
+                $data.setDiscountAmount(discountAmount);
+                $data.setDiscountRate(discountRate * 100 + "%");
+        	$data.setMessage("Final price of the vehicle in " + $data.getCity() + " is " + $data.getAmount() + ", with discount rate of " + $data.getDiscountRate());
+        end
+
+rule "Apply Discount of 37 % for Maharashtra if vehicle is two-wheeler"
+        when
+            $data: Data(state.name().equalsIgnoreCase(EState.MAHA.name()) && evehicle.name().equals(EVehicle.TWO_WHEELER.name()) )
+        then
+        	    double discountRate= 0.37 ;
+
+                double discountAmount = $data.getAmount() * discountRate;
+                double discountedTotal = $data.getAmount() - discountAmount;
+                $data.setAmount(discountedTotal);
+                $data.setDiscountAmount(discountAmount);
+                $data.setDiscountRate(discountRate * 100 + "%");
+        	$data.setMessage("Final price of the vehicle in " + $data.getCity() + " is " + $data.getAmount() + ", with discount rate of " + $data.getDiscountRate());
+        end
+
+rule "Apply Discount of 28 % for Maharashtra if vehicle is three-wheeler"
+        when
+            $data: Data(state.name().equalsIgnoreCase(EState.MAHA.name()) && evehicle.name().equals(EVehicle.THREE_WHEELER.name()) )
+        then
+        	    double discountRate= 0.28 ;
+
+                double discountAmount = $data.getAmount() * discountRate;
+                double discountedTotal = $data.getAmount() - discountAmount;
+                $data.setAmount(discountedTotal);
+                $data.setDiscountAmount(discountAmount);
+                $data.setDiscountRate(discountRate * 100 + "%");
+        	$data.setMessage("Final price of the vehicle in " + $data.getCity() + " is " + $data.getAmount() + ", with discount rate of " + $data.getDiscountRate());
+        end
+
+rule "Apply Discount of 35 % for Tamilnadu if vehicle is four-wheeler"
+        when
+            $data: Data(state.name().equalsIgnoreCase(EState.MAHA.name()) && evehicle.name().equals(EVehicle.FOUR_WHEELER.name()) )
+        then
+        	    double discountRate= 0.35 ;
+
+        	    double discountAmount = $data.getAmount() * discountRate;
+                double discountedTotal = $data.getAmount() - discountAmount;
+                $data.setAmount(discountedTotal);
+                $data.setDiscountAmount(discountAmount);
+                $data.setDiscountRate(discountRate * 100 + "%");
+        	$data.setMessage("Final price of the vehicle in " + $data.getCity() + " is " + $data.getAmount() + ", with discount rate of " + $data.getDiscountRate());
+        end
+
+rule "Apply Discount of 17 % for Tamilnadu if vehicle is two-wheeler"
+        when
+            $data: Data(state.name().equalsIgnoreCase(EState.TN.name()) && evehicle.name().equals(EVehicle.TWO_WHEELER.name()) )
+        then
+        	    double discountRate= 0.17 ;
+
+                double discountAmount = $data.getAmount() * discountRate;
+                double discountedTotal = $data.getAmount() - discountAmount;
+                $data.setAmount(discountedTotal);
+                $data.setDiscountAmount(discountAmount);
+                $data.setDiscountRate(discountRate * 100 + "%");
+        	$data.setMessage("Final price of the vehicle in " + $data.getCity() + " is " + $data.getAmount() + ", with discount rate of " + $data.getDiscountRate());
+        end
+
+rule "Apply Discount of 21 % for Tamilnadu if vehicle is three-wheeler"
+        when
+            $data: Data(state.name().equalsIgnoreCase(EState.TN.name()) && evehicle.name().equals(EVehicle.THREE_WHEELER.name()) )
+        then
+        	    double discountRate= 0.21 ;
+
+                double discountAmount = $data.getAmount() * discountRate;
+                double discountedTotal = $data.getAmount() - discountAmount;
+                $data.setAmount(discountedTotal);
+                $data.setDiscountAmount(discountAmount);
+                $data.setDiscountRate(discountRate * 100 + "%");
+        	$data.setMessage("Final price of the vehicle in " + $data.getCity() + " is " + $data.getAmount() + ", with discount rate of " + $data.getDiscountRate());
+        end
